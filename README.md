@@ -62,19 +62,19 @@ export default {
       steps: [
         {
           label: 'Select Items',
-          page: 'page1',
+          slot: 'page1',
         },
         {
           label: 'Add Constraints',
-          page: 'page2',
+          slot: 'page2',
         },
         {
           label: 'Review',
-          page: 'page3',
+          slot: 'page3',
         },
         {
           label: 'Apply',
-          page: 'page4',
+          slot: 'page4',
         }
       ],
     };

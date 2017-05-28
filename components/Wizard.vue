@@ -49,7 +49,7 @@ export default {
       return 'calc('+currentStepMiddle+'% - 14px)'
     },
     currentSlot() {
-      return this.steps[this.currentStep].page;
+      return this.steps[this.currentStep].slot;
     },
     backEnabled() {
       return this.currentStep != 0;
