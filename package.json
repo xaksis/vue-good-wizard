@@ -1,0 +1,16 @@
+{
+  "name": "vue-good-wizard",
+  "version": "1.0.0",
+  "description": "An easy and clean VueJS 2.x wizard plugin ",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "keywords": [
+    "VueJS",
+    "wizard",
+    "vue"
+  ],
+  "author": "xaksis",
+  "license": "MIT"
+}
