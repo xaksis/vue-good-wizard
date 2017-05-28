@@ -79,8 +79,6 @@ export default {
       ],
     };
   },
-  mounted(){
-  },
   methods: {
     nextClicked(currentPage) {
       console.log('next clicked', currentPage)
