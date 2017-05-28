@@ -20,7 +20,7 @@ npm install --save vue-good-wizard
 import into project:
 ```
 import Vue from 'vue';
-import VueGoodTable from 'vue-good-wizard';
+import VueGoodWizard from 'vue-good-wizard';
 
 Vue.use(VueGoodWizard);
 ```
