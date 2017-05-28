@@ -85,6 +85,9 @@ export default {
 <style lang="css" scoped>
 /* Utilities
 *******************************/
+* {
+  box-sizing: content-box;
+}
 
 .pull-left{
   float:  left !important;
