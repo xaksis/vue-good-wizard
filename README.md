@@ -1,7 +1,7 @@
 # vue-good-wizard
 An easy and clean VueJS 2.x wizard plugin
 
-![Basic Screenshot](README/images/wizard.png)
+![Basic Screenshot](README/images/vue-good-wizard.gif)
 
 ## Getting Started
 
