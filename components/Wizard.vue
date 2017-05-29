@@ -56,8 +56,8 @@ export default {
     }
   },
   methods: {
-    goNext(){
-      if (typeof this.onNext == 'function'){
+    goNext (skipFunction) {
+      if (!skipFunction && typeof this.onNext == 'function'){
         if(!this.onNext(this.currentStep)) {
           //returned false. don't do anything
           return;
@@ -67,8 +67,8 @@ export default {
         this.currentStep++;
       }
     },
-    goBack(){
-      if (typeof this.onBack == 'function'){
+    goBack (skipFunction) {
+      if (!skipFunction && typeof this.onBack == 'function'){
         if(!this.onBack(this.currentStep)) {
           //returned false. don't do anything
           return;
