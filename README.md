@@ -156,7 +156,7 @@ function(currentPage){
   </tbody>
 </table>
 
-## Calling next/back via parent
+## Advanced usecase - Call next or back asynchronously 
 In some cases, you might want to change step programmatically. The most common usecase for this is if you want to call an asynchronous action on next/back click and then in the callback want to either go to the next step or stay on the same step. 
 
 Following is an example of how this can be done using *vue-good-wizard*
