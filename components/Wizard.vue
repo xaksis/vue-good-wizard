@@ -85,9 +85,6 @@ export default {
 <style lang="css" scoped>
 /* Utilities
 *******************************/
-* {
-  box-sizing: content-box;
-}
 
 .pull-left{
   float:  left !important;
@@ -145,6 +142,7 @@ export default {
 }
 
 .wizard__step__indicator{
+  box-sizing: content-box;
   display:  block;
   width:  16px;
   height:  16px;

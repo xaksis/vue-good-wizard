@@ -1,7 +1,7 @@
 import GoodWizard from './components/Wizard.vue';
 
 const GoodWizardPlugin = {
-  install(Vue, options) {
+  install: function(Vue, options) {
     Vue.component(GoodWizard.name, GoodWizard);
   },
 };
