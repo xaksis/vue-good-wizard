@@ -1,6 +1,6 @@
 {
   "name": "vue-good-wizard",
-  "version": "1.1.1",
+  "version": "1.1.2",
   "description": "An easy and clean VueJS 2.x wizard plugin ",
   "main": "index.js",
   "scripts": {
