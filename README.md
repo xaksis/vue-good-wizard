@@ -3,6 +3,10 @@ An easy and clean VueJS 2.x wizard plugin
 
 ![Basic Screenshot](README/images/vue-good-wizard.gif)
 
+## Live Demo
+
+[vue-good-wizard Demo](https://xaksis.github.io/vue-good-demos/#/simple-wizard)
+
 ## Getting Started
 
 ### Prerequisites
