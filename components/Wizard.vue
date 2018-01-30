@@ -46,7 +46,10 @@ export default {
       var stepSize = 100/this.steps.length;
       var currentStepStart = stepSize * this.currentStep;
       var currentStepMiddle = currentStepStart + (stepSize/2);
-      return 'calc('+currentStepMiddle+'% - 14px)'
+      if(this.steps.length == 1)
+        return 'calc('+currentStepMiddle+'%)'
+      else
+        return 'calc('+currentStepMiddle+'% - 14px)'
     },
     currentSlot() {
       return this.steps[this.currentStep].slot;
