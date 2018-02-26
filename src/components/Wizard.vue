@@ -1,22 +1,40 @@
 <template>
   <div class="wizard">
     <ul class="wizard__steps">
-      <li class="wizard__step" :class="{'active': currentStep >= index}" :style="{ width: 100/steps.length + '%' }" v-for="(step, index) of steps">
+      <li class="wizard__step" 
+        :class="{'active': currentStep >= index}" 
+        :style="{ width: 100/steps.length + '%' }" 
+        v-for="(step, index) of steps" :key="index">
         <span class="wizard__step__line"></span>
         <span class="wizard__step__label">{{step.label}}</span>
         <span class="wizard__step__indicator"></span>
       </li>
     </ul>
-    <span class="wizard__arrow" :style="{ left: arrowPosition }"></span>
+    <span 
+      class="wizard__arrow" 
+      :style="{ left: arrowPosition }">
+    </span>
     <div class="wizard__body">
-      <div class="wizard__body__step"><slot :name="currentSlot"></slot></div>
+      <div class="wizard__body__step">
+        <slot :name="currentSlot"></slot>
+      </div>
       <div class="wizard__body__actions clearfix">
-        <a v-if="backEnabled" class="wizard__back pull-left" @click="goBack()"> <img src="../images/back.png" alt="next icon"> <span>{{previousStepLabel}}</span> 
+        <a
+          v-if="backEnabled"
+          class="wizard__back pull-left"
+          @click="goBack()">
+          <i class="icon vgw-prev"></i>
+          <span>{{previousStepLabel}}</span> 
         </a>
-        <a v-if="currentStep != steps.length - 1" class="wizard__next pull-right" @click="goNext()">
-          <span>{{nextStepLabel}}</span> <img src="../images/next.png" alt="next icon">
+        <a
+          v-if="currentStep != steps.length - 1" class="wizard__next pull-right"
+          @click="goNext()">
+          <span>{{nextStepLabel}}</span>
+          <i class="icon vgw-next"></i>
+          <!-- <img src="../images/next.png" alt="next icon"> -->
         </a>
-        <a v-if="currentStep == steps.length - 1" class="wizard__next pull-right final-step" @click="goNext()">
+        <a
+          v-if="currentStep == steps.length - 1" class="wizard__next pull-right final-step" @click="goNext()">
           {{finalStepLabel}}
         </a>
       </div>
@@ -236,9 +254,30 @@ export default {
   transition: background-color 0.3s;
 }
 
-.wizard__body__actions a>img, .wizard__body__actions a>span{
+.wizard__body__actions a>.icon, .wizard__body__actions a>span{
   display: inline-block;
   vertical-align: middle;
+  position: relative;
+}
+
+.wizard__body__actions .icon::after{
+  position: absolute;
+  content: "";
+  transform: rotate(-45deg);
+  width: 8px;
+  height: 8px;
+  top: -6px;
+}
+
+.icon.vgw-next::after{
+  border-bottom: 2px solid white;
+  border-right: 2px solid white;
+}
+
+.icon.vgw-prev::after{
+  border-top: 2px solid white;
+  border-left: 2px solid white;
+  left: -10px;
 }
 
 .wizard__body__actions a:hover{
