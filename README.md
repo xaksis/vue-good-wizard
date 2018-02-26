@@ -157,6 +157,44 @@ function(currentPage){
 </pre>
       </td>
     </tr>
+    <tr>
+      <td colspan="3">
+        <strong>Label options</strong>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        previousStepLabel
+      </td>
+      <td>
+        label for previous step
+      </td>
+      <td>
+       default: 'Back'
+      </td>
+    </tr>
+    <tr>
+      <td>
+        nextStepLabel
+      </td>
+      <td>
+        label for next step
+      </td>
+      <td>
+       default: 'Next'
+      </td>
+    </tr>
+    <tr>
+      <td>
+        finalStepLabel
+      </td>
+      <td>
+        label for final step
+      </td>
+      <td>
+       default: 'Save'
+      </td>
+    </tr>
   </tbody>
 </table>
 

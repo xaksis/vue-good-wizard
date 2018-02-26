@@ -266,7 +266,8 @@ export default {
   transform: rotate(-45deg);
   width: 8px;
   height: 8px;
-  top: -6px;
+  top: 50%;
+  margin-top: -5px;
 }
 
 .vgw-icon.vgw-next::after{
