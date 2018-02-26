@@ -23,14 +23,14 @@
           v-if="backEnabled"
           class="wizard__back pull-left"
           @click="goBack()">
-          <i class="icon vgw-prev"></i>
+          <i class="vgw-icon vgw-prev"></i>
           <span>{{previousStepLabel}}</span> 
         </a>
         <a
           v-if="currentStep != steps.length - 1" class="wizard__next pull-right"
           @click="goNext()">
           <span>{{nextStepLabel}}</span>
-          <i class="icon vgw-next"></i>
+          <i class="vgw-icon vgw-next"></i>
           <!-- <img src="../images/next.png" alt="next icon"> -->
         </a>
         <a
@@ -254,13 +254,13 @@ export default {
   transition: background-color 0.3s;
 }
 
-.wizard__body__actions a>.icon, .wizard__body__actions a>span{
+.wizard__body__actions a>.vgw-icon, .wizard__body__actions a>span{
   display: inline-block;
   vertical-align: middle;
   position: relative;
 }
 
-.wizard__body__actions .icon::after{
+.wizard__body__actions .vgw-icon::after{
   position: absolute;
   content: "";
   transform: rotate(-45deg);
@@ -269,12 +269,12 @@ export default {
   top: -6px;
 }
 
-.icon.vgw-next::after{
+.vgw-icon.vgw-next::after{
   border-bottom: 2px solid white;
   border-right: 2px solid white;
 }
 
-.icon.vgw-prev::after{
+.vgw-icon.vgw-prev::after{
   border-top: 2px solid white;
   border-left: 2px solid white;
   left: -10px;

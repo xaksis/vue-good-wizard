@@ -1,7 +1,7 @@
 import Vue from 'vue'
 import App from './App'
-import VueGoodWizard from '../dist/vue-good-wizard.cjs'
-// import VueGoodWizard from '../src'
+// import VueGoodWizard from '../dist/vue-good-wizard.cjs'
+import VueGoodWizard from '../src'
 
 Vue.use(VueGoodWizard);
 
