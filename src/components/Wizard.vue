@@ -101,6 +101,10 @@ export default {
         this.currentStep--;
       }
     },
+    goFirstStep() {
+      this.currentStep = -1;
+      this.goNext();
+    }
   },
 };
 </script>
