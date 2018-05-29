@@ -1,5 +1,6 @@
 # vue-good-wizard
 An easy and clean VueJS 2.x wizard plugin
+
 [![npm](https://img.shields.io/npm/dm/vue-good-wizard.svg?style=flat-square)](https://www.npmjs.com/package/vue-good-wizard)
 [![npm](https://img.shields.io/github/package-json/v/xaksis/vue-good-wizard.svg?style=flat-square)](https://github.com/xaksis/vue-good-wizard/releases)
 [![npm](https://img.shields.io/github/license/xaksis/vue-good-wizard.svg?style=flat-square)](https://github.com/xaksis/vue-good-wizard/blob/master/LICENSE)
