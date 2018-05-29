@@ -30,6 +30,7 @@
           <span>{{previousStepLabel}}</span> 
         </a>
         <a
+          :class="{'disabled': options[currentStep].nextDisabled}"
           v-if="currentStep != steps.length - 1" class="wizard__next pull-right"
           @click="goNext()">
           <span>{{nextStepLabel}}</span>
@@ -37,6 +38,7 @@
           <!-- <img src="../images/next.png" alt="next icon"> -->
         </a>
         <a
+          :class="{'disabled': options[currentStep].nextDisabled}"
           v-if="currentStep == steps.length - 1" class="wizard__next pull-right final-step" @click="goNext()">
           {{finalStepLabel}}
         </a>
@@ -59,24 +61,25 @@ export default {
     onBack: {},
   },
 
+  watch: {
+    steps: {
+      handler() {
+        this.parseOptions();
+      },
+      immediate: true,
+    }
+  },
+
   data () {
     return {
       currentStep: 0,
       isMounted: false,
       resizer: null,
       isMobile: false,
+      options: [],
     };
   },
   computed: {
-    wizardBodyStyle() {
-      if (this.isMobile) {
-        return {
-          marginLeft: '10px',
-          marginRight: '10px',
-        };
-      }
-    },
-
     wizardStepStyle() {
       if (this.isMobile) {
         return {
@@ -133,6 +136,14 @@ export default {
         this.currentStep--;
       }
     },
+    
+    parseOptions() {
+      this.options = [];
+      for(let i = 0; i < this.steps.length; i++) {
+        this.options.push(this.steps[i].options ? this.steps[i].options : {});
+      } 
+    },
+
     handleResize() {
       console.log('handle resize')
       if (this.resizer) {
@@ -301,6 +312,16 @@ export default {
   -webkit-transition: background-color 0.3s;
   -o-transition: background-color 0.3s;
   transition: background-color 0.3s;
+}
+
+.wizard__body__actions a.disabled{
+  cursor: not-allowed;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  opacity: 0.5;
 }
 
 .wizard__body__actions a>.vgw-icon, .wizard__body__actions a>span{

@@ -1,5 +1,6 @@
 <template>
   <div>
+    <button @click="enableSave">Enable</button>
     <vue-good-wizard 
       :steps="steps"
       :onNext="nextClicked" 
@@ -31,7 +32,7 @@ export default {
     return {
       steps: [
         {
-          label: 'Select Items longer text',
+          label: 'Select Items',
           slot: 'page1',
         },
         {
@@ -45,6 +46,9 @@ export default {
         {
           label: 'Apply',
           slot: 'page4',
+          options: {
+            nextDisabled: true,
+          }
         }
       ],
     };
@@ -57,6 +61,9 @@ export default {
     backClicked(currentPage) {
       console.log('back clicked', currentPage);
       return true; //return false if you want to prevent moving to previous page
+    },
+    enableSave() {
+      this.steps[3].options.nextDisabled = false;
     }
   },
 };
