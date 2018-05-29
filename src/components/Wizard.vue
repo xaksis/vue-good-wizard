@@ -1,11 +1,14 @@
 <template>
   <div class="wizard">
     <ul class="wizard__steps">
-      <li class="wizard__step" 
-        :class="{'active': currentStep >= index}" 
-        :style="{ width: 100/steps.length + '%' }" 
+      <li class="wizard__step"
+        :class="{
+          'active': isMobile ? currentStep === index : currentStep >= index,
+          'vgw-mobile': isMobile,
+        }"
+        :style="wizardStepStyle"
         v-for="(step, index) of steps" :key="index">
-        <span class="wizard__step__line"></span>
+        <span class="wizard__step__line" :class="{'vgw-mobile': isMobile}"></span>
         <span class="wizard__step__label">{{step.label}}</span>
         <span class="wizard__step__indicator"></span>
       </li>
@@ -14,7 +17,7 @@
       class="wizard__arrow" 
       :style="{ left: arrowPosition }">
     </span>
-    <div class="wizard__body">
+    <div ref="wizard-body" class="wizard__body" :class="{'vgw-mobile': isMobile}">
       <div class="wizard__body__step">
         <slot :name="currentSlot"></slot>
       </div>
@@ -59,10 +62,39 @@ export default {
   data () {
     return {
       currentStep: 0,
+      isMounted: false,
+      resizer: null,
+      isMobile: false,
     };
   },
   computed: {
+    wizardBodyStyle() {
+      if (this.isMobile) {
+        return {
+          marginLeft: '10px',
+          marginRight: '10px',
+        };
+      }
+    },
+
+    wizardStepStyle() {
+      if (this.isMobile) {
+        return {
+          width: '100%',
+        };
+      }
+
+      return {
+        width: `${100/this.steps.length}%`,
+      };
+    },
+    mobileArrowPosition() {
+      return 'calc(50% - 14px)';
+    },
     arrowPosition() {
+      if (this.isMobile) {
+        return this.mobileArrowPosition;
+      }
       var stepSize = 100/this.steps.length;
       var currentStepStart = stepSize * this.currentStep;
       var currentStepMiddle = currentStepStart + (stepSize/2);
@@ -101,7 +133,24 @@ export default {
         this.currentStep--;
       }
     },
+    handleResize() {
+      console.log('handle resize')
+      if (this.resizer) {
+        clearTimeout(this.resizer);
+      }
+      this.resizer = setTimeout(() => {
+        console.log('resizing...');
+        this.isMobile = this.$refs['wizard-body'].clientWidth < 620;
+      }, 100);
+    },
   },
+  mounted() {
+    this.isMobile = this.$refs['wizard-body'].clientWidth < 620;
+    window.addEventListener('resize', this.handleResize)
+  },
+  beforeDestroy() {
+    window.removeEventListener('resize', this.handleResize)
+  }
 };
 </script>
 
@@ -287,6 +336,21 @@ export default {
 
 .wizard__body__actions a.final-step{
   background-color: #6eb165;
+}
+
+/* mobile */
+.wizard__body.vgw-mobile{
+  margin-left: 10px;
+  margin-right: 10px;
+}
+.wizard__step.vgw-mobile{
+  display: none;
+}
+.wizard__step .wizard__step__line.vgw-mobile{
+  display: none;
+}
+.wizard__step.active.vgw-mobile{
+  display: inline-block;
 }
 
 </style>

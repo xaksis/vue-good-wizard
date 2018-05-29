@@ -12,6 +12,4 @@ if (typeof window !== 'undefined' && window.Vue) {
 }
 
 export default GoodWizardPlugin;
-export {
-   GoodWizard as VueGoodWizard
-};
+export { GoodWizard };

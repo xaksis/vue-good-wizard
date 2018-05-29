@@ -31,7 +31,7 @@ export default {
     return {
       steps: [
         {
-          label: 'Select Items',
+          label: 'Select Items longer text',
           slot: 'page1',
         },
         {
