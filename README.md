@@ -22,16 +22,30 @@ An easy and clean VueJS 2.x wizard plugin
 ### Installing
 
 Install with npm:
-```
+```bash
 npm install --save vue-good-wizard
 ```
 
 import into project:
-```
+```js
 import Vue from 'vue';
 import VueGoodWizard from 'vue-good-wizard';
 
 Vue.use(VueGoodWizard);
+```
+
+**or**
+
+import into component: 
+
+```js
+// within your component script tag
+import { GoodWizard } from 'vue-good-wizard';
+
+// in your components
+components: {
+  'vue-good-wizard': GoodWizard,
+}
 ```
 
 ## Example Usage
