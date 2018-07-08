@@ -10,7 +10,7 @@ An easy and clean VueJS 2.x wizard plugin
 
 ## Live Demo
 
-[vue-good-wizard Demo](https://xaksis.github.io/vue-good-demos/#/simple-wizard)
+[vue-good-wizard Demo](https://jsfiddle.net/aks9800/ygkruetq/)
 
 <a href="https://www.buymeacoffee.com/68BUXR1d9" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/purple_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
 
