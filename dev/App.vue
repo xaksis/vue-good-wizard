@@ -26,6 +26,8 @@
 </template>
 
 <script>
+import { GoodWizard } from '../dist/vue-good-wizard.es.js';
+
 export default {
   name: 'demo',
   data(){
@@ -66,6 +68,9 @@ export default {
       this.steps[3].options.nextDisabled = false;
     }
   },
+  components: {
+    'vue-good-wizard': GoodWizard,
+  }
 };
 </script>
 

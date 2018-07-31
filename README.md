@@ -1,9 +1,11 @@
 # vue-good-wizard
-An easy and clean VueJS 2.x wizard plugin
+
 [![npm](https://img.shields.io/npm/dm/vue-good-wizard.svg?style=flat-square)](https://www.npmjs.com/package/vue-good-wizard)
 [![npm](https://img.shields.io/github/package-json/v/xaksis/vue-good-wizard.svg?style=flat-square)](https://github.com/xaksis/vue-good-wizard/releases)
 [![npm](https://img.shields.io/github/license/xaksis/vue-good-wizard.svg?style=flat-square)](https://github.com/xaksis/vue-good-wizard/blob/master/LICENSE)
 [![](https://data.jsdelivr.com/v1/package/npm/vue-good-wizard/badge)](https://www.jsdelivr.com/package/npm/vue-good-wizard)
+
+An easy and clean VueJS 2.x wizard plugin
 
 ![Basic Screenshot](README/images/vue-good-wizard.gif)
 
@@ -14,7 +16,7 @@ An easy and clean VueJS 2.x wizard plugin
 <a href="https://www.buymeacoffee.com/68BUXR1d9" target="_blank"><img src="https://www.buymeacoffee.com/assets/img/custom_images/purple_img.png" alt="Buy Me A Coffee" style="height: auto !important;width: auto !important;" ></a>
 
 ## Follow the project progress live
-[Vue-good-table Project](https://timerbit.com/#/public/U1kivTdfbz4T3hJ3E7BJ)
+[Vue-good-wizard Project](https://timerbit.com/#/public/U1kivTdfbz4T3hJ3E7BJ)
 
 ## Getting Started
 
@@ -292,7 +294,7 @@ export default {
 
 ## Authors
 
-* **Akshay Anand** - *Initial work* - [xaksis](https://github.com/xaksis)
+* **Akshay Anand** - [xaksis](https://github.com/xaksis)
 
 ## License
 
