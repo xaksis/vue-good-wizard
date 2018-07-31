@@ -35,7 +35,6 @@
           @click="goNext()">
           <span>{{nextStepLabel}}</span>
           <i class="vgw-icon vgw-next"></i>
-          <!-- <img src="../images/next.png" alt="next icon"> -->
         </a>
         <a
           :class="{'disabled': options[currentStep].nextDisabled}"
@@ -135,6 +134,14 @@ export default {
       if (this.currentStep > 0) {
         this.currentStep--;
       }
+    },
+
+    goTo(step) {
+      if (Number.isInteger(step)
+        && step < this.steps.length
+        && step >= 0) {
+        this.currentStep = step;
+      } 
     },
     
     parseOptions() {

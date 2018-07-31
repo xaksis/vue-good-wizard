@@ -218,6 +218,33 @@ function(currentPage){
        default: 'Save'
       </td>
     </tr>
+    <tr>
+      <td colspan="3">
+        <strong>Useful internal functions</strong>
+      </td>
+    </tr>
+    <tr>
+      <td>
+        goNext()
+      </td>
+      <td>
+        for async usecase, you'd want to go next only after your async function is done. See [advanced usecase](https://github.com/xaksis/vue-good-wizard#advanced-usecase---call-next-or-back-asynchronously)
+      </td>
+      <td>
+       `this.$refs['my-wizard'].goNext(true)` 
+      </td>
+    </tr>
+    <tr>
+      <td>
+        goTo(step)
+      </td>
+      <td>
+        if you want to go to a step programmatically, you can use this method
+      </td>
+      <td>
+       `this.$refs['my-wizard'].goTo(2)` // go to 3rd step.
+      </td>
+    </tr>
   </tbody>
 </table>
 

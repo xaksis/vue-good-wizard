@@ -1,7 +1,9 @@
 <template>
   <div>
     <button @click="enableSave">Enable</button>
-    <vue-good-wizard 
+    <button @click="go()">goto</button>
+    <vue-good-wizard
+      ref="wizard"
       :steps="steps"
       :onNext="nextClicked" 
       :onBack="backClicked">
@@ -26,12 +28,13 @@
 </template>
 
 <script>
-import { GoodWizard } from '../dist/vue-good-wizard.es.js';
+// import { GoodWizard } from '../dist/vue-good-wizard.es.js';
 
 export default {
   name: 'demo',
   data(){
     return {
+      cStep: 1,
       steps: [
         {
           label: 'Select Items',
@@ -66,11 +69,14 @@ export default {
     },
     enableSave() {
       this.steps[3].options.nextDisabled = false;
+    },
+    go() {
+      this.$refs.wizard.goTo(this.cStep++);
     }
   },
-  components: {
-    'vue-good-wizard': GoodWizard,
-  }
+  // components: {
+  //   'vue-good-wizard': GoodWizard,
+  // }
 };
 </script>
 
