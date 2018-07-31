@@ -116,6 +116,12 @@ var GoodWizard = { render: function () {
       }
     },
 
+    goTo: function goTo(step) {
+      if (Number.isInteger(step) && step < this.steps.length && step >= 0) {
+        this.currentStep = step;
+      }
+    },
+
     parseOptions: function parseOptions() {
       var this$1 = this;
 
