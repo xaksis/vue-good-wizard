@@ -1,5 +1,5 @@
 /**
- * vue-good-table v1.4.0
+ * vue-good-table v1.4.1
  * https://github.com/xaksis/vue-good-wizard
  * Released under the MIT License.
  */
@@ -19,7 +19,7 @@
 var GoodWizard = { render: function () {
     var _vm = this;var _h = _vm.$createElement;var _c = _vm._self._c || _h;return _c('div', { staticClass: "wizard" }, [_c('ul', { staticClass: "wizard__steps" }, _vm._l(_vm.steps, function (step, index) {
       return _c('li', { key: index, staticClass: "wizard__step", class: { 'active': _vm.isMobile ? _vm.currentStep === index : _vm.currentStep >= index, 'vgw-mobile': _vm.isMobile }, style: _vm.wizardStepStyle }, [_c('span', { staticClass: "wizard__step__line", class: { 'vgw-mobile': _vm.isMobile } }), _vm._v(" "), _c('span', { staticClass: "wizard__step__label" }, [_vm._v(_vm._s(step.label))]), _vm._v(" "), _c('span', { staticClass: "wizard__step__indicator" })]);
-    })), _vm._v(" "), _c('span', { staticClass: "wizard__arrow", style: { left: _vm.arrowPosition } }), _vm._v(" "), _c('div', { ref: "wizard-body", staticClass: "wizard__body", class: { 'vgw-mobile': _vm.isMobile } }, [_c('div', { staticClass: "wizard__body__step" }, [_vm._t(_vm.currentSlot)], 2), _vm._v(" "), _c('div', { staticClass: "wizard__body__actions clearfix" }, [_vm.backEnabled ? _c('a', { staticClass: "wizard__back pull-left", on: { "click": function ($event) {
+    })), _vm._v(" "), _c('span', { staticClass: "wizard__arrow", style: { left: _vm.arrowPosition } }), _vm._v(" "), _c('div', { ref: "wizard-body", staticClass: "wizard__body", class: { 'vgw-mobile': _vm.isMobile } }, [_c('div', { key: _vm.currentSlot, staticClass: "wizard__body__step" }, [_vm._t(_vm.currentSlot)], 2), _vm._v(" "), _c('div', { staticClass: "wizard__body__actions clearfix" }, [_vm.backEnabled ? _c('a', { staticClass: "wizard__back pull-left", on: { "click": function ($event) {
           _vm.goBack();
         } } }, [_c('i', { staticClass: "vgw-icon vgw-prev" }), _vm._v(" "), _c('span', [_vm._v(_vm._s(_vm.previousStepLabel))])]) : _vm._e(), _vm._v(" "), _vm.currentStep != _vm.steps.length - 1 ? _c('a', { staticClass: "wizard__next pull-right", class: { 'disabled': _vm.options[_vm.currentStep].nextDisabled }, on: { "click": function ($event) {
           _vm.goNext();
