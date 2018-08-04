@@ -18,7 +18,7 @@
       :style="{ left: arrowPosition }">
     </span>
     <div ref="wizard-body" class="wizard__body" :class="{'vgw-mobile': isMobile}">
-      <div class="wizard__body__step">
+      <div :key="currentSlot" class="wizard__body__step">
         <slot :name="currentSlot"></slot>
       </div>
       <div class="wizard__body__actions clearfix">

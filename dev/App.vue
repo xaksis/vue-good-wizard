@@ -9,19 +9,22 @@
       :onBack="backClicked">
       <div slot="page1">
         <h4>Step 1</h4>
-        <p>This is step 1</p>
+        <input
+        id="step1"
+        v-model="step1"
+        rows="15"
+        >
+        </input>
       </div>
       <div slot="page2">
-        <h4>Step 2</h4>
-        <p>This is step 2</p>
+        <input
+        id="step2"
+        v-model="step2"
+        rows="15"
+        >
+        </input>
       </div>
       <div slot="page3">
-        <h4>Step 3</h4>
-        <p>This is step 3</p>
-      </div>
-      <div slot="page4">
-        <h4>Step 4</h4>
-        <p>This is step 4</p>
       </div>
     </vue-good-wizard>
   </div>
@@ -34,6 +37,8 @@ export default {
   name: 'demo',
   data(){
     return {
+      step1: '',
+      step2: '',
       cStep: 1,
       steps: [
         {
