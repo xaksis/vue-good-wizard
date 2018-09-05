@@ -31,15 +31,20 @@
         </a>
         <a
           :class="{'disabled': options[currentStep].nextDisabled}"
-          v-if="currentStep != steps.length - 1" class="wizard__next pull-right"
+          v-if="isWizardStep() && !isFinalStep()" class="wizard__next pull-right"
           @click="goNext()">
           <span>{{nextStepLabel}}</span>
           <i class="vgw-icon vgw-next"></i>
         </a>
         <a
           :class="{'disabled': options[currentStep].nextDisabled}"
-          v-if="currentStep == steps.length - 1" class="wizard__next pull-right final-step" @click="goNext()">
+          v-if="isFinalStep()" class="wizard__next pull-right final-step" @click="goNext()">
           {{finalStepLabel}}
+        </a>
+        <a
+          :class="{'disabled': options[currentStep].nextDisabled}"
+          v-if="isCompleteStep(true)" class="wizard__next pull-right complete-step" @click="goNext()">
+          {{completeStep.label||'Done'}}
         </a>
       </div>
     </div>
@@ -52,6 +57,7 @@ export default {
   name: 'vue-good-wizard',
 
   props: {
+    completeStep: {default:{has:false,showButton:false,label:'Done'}},
     steps: {},
     previousStepLabel: {default: 'Back'},
     nextStepLabel: {default: 'Next'},
@@ -75,7 +81,7 @@ export default {
       isMounted: false,
       resizer: null,
       isMobile: false,
-      options: [],
+      options: []
     };
   },
   computed: {
@@ -109,7 +115,7 @@ export default {
       return this.steps[this.currentStep].slot;
     },
     backEnabled() {
-      return this.currentStep != 0;
+      return this.currentStep != 0 && !this.isCompleteStep();
     }
   },
   methods: {
@@ -161,6 +167,21 @@ export default {
         this.isMobile = this.$refs['wizard-body'].clientWidth < 620;
       }, 100);
     },
+    isWizardStep() {
+      const lastStepValue = this.completeStep.has ? this.steps.length - 2 : this.steps.length -1;
+      if(lastStepValue < 0) console.log('Last step value was: '+lastStepValue);
+      return this.currentStep <= lastStepValue;
+    },
+    isFinalStep() {
+      const lastStepValue = this.completeStep.has ? this.steps.length - 2 : this.steps.length -1;
+      if(lastStepValue < 0) console.log('Last step value was: '+lastStepValue);
+      return this.currentStep == lastStepValue;
+    },
+    isCompleteStep() {
+      const isCompleteStep = this.completeStep.has && this.currentStep ==this.steps.length - 1;
+      console.log('checking for final step:'+isCompleteStep);
+      return isCompleteStep;
+    } 
   },
   mounted() {
     this.isMobile = this.$refs['wizard-body'].clientWidth < 620;
@@ -364,6 +385,9 @@ export default {
 
 .wizard__body__actions a.final-step{
   background-color: #6eb165;
+}
+.wizard__body__actions a.complete-step{
+  background-color: #2C7520;
 }
 
 /* mobile */

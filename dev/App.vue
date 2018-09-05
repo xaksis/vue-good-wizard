@@ -6,7 +6,9 @@
       ref="wizard"
       :steps="steps"
       :onNext="nextClicked" 
-      :onBack="backClicked">
+      :onBack="backClicked"
+      :completeStep="completeStepOptions"
+      >
       <div slot="page1">
         <h4>Step 1</h4>
         <input
@@ -25,6 +27,9 @@
         </input>
       </div>
       <div slot="page3">
+      </div>
+      <div slot="pageDone">
+        <h2>Congratulations!  You can leave now...</h2>
       </div>
     </vue-good-wizard>
   </div>
@@ -59,8 +64,13 @@ export default {
           options: {
             nextDisabled: true,
           }
+        },
+        {
+          label: 'Complete',
+          slot: 'pageDone'
         }
       ],
+      completeStepOptions: {has:true,showButton:false}
     };
   },
   methods: {
