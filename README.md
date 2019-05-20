@@ -49,6 +49,74 @@ components: {
 }
 ```
 
+**or**
+
+from CDN
+
+<a href='https://cdn.jsdelivr.net/npm/vue-good-wizard@latest/dist/vue-good-wizard.min.js'>https://cdn.jsdelivr.net/npm/vue-good-wizard@latest/dist/vue-good-wizard.min.js</a>
+
+```html
+<div id="app">
+  <vue-good-wizard 
+                   :steps="steps"
+                   :onNext="nextClicked" 
+                   :onBack="backClicked">
+    <div slot="page1">
+      <h4>Step 1</h4>
+      <p>This is step 1</p>
+    </div>
+    <div slot="page2">
+      <h4>Step 2</h4>
+      <p>This is step 2</p>
+    </div>
+    <div slot="page3">
+      <h4>Step 3</h4>
+      <p>This is step 3</p>
+    </div>
+    <div slot="page4">
+      <h4>Step 4</h4>
+      <p>This is step 4</p>
+    </div>
+  </vue-good-wizard>
+</div>
+
+<script>
+  
+  new Vue({
+  el: '#app',
+  data: {
+    steps: [
+        {
+          label: 'Select Items',
+          slot: 'page1',
+        },
+        {
+          label: 'Add Constraints',
+          slot: 'page2',
+        },
+        {
+          label: 'Review',
+          slot: 'page3',
+        },
+      ],
+  },
+  methods: {
+    nextClicked(currentPage) {
+      console.log('next clicked', currentPage)
+      return true; //return false if you want to prevent moving to next page
+    },
+    backClicked(currentPage) {
+      console.log('back clicked', currentPage);
+      return true; //return false if you want to prevent moving to previous page
+    }
+  },
+})
+
+</script>
+
+```
+
+
 ## Example Usage
 
 ```html
